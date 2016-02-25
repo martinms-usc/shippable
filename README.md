@@ -1,6 +1,6 @@
-## Shippable
+# Shippable Assignment
 
-### My Solution
+## Solution
 
 This immediately jumped out as a straightforward sinlge-page app, with Angular.js being a great option. 
 
@@ -23,4 +23,6 @@ I customized an AWS EC2 instance and used Forever.js to run the app indefinitely
 
 ### Given More Time
 
-I would return much more data to the front-end and use `ng-click` and `ng-show` directives to expand the counts for each time window category into a list of issue names, with the assignee and other details, while also linking to the issue's URL. I would also return the repo owner's image to the UI as a purely aesthetic addition.
+I would return much more data to the front-end and use `ng-click` and `ng-show` directives as well as `ui-router` to expand the counts for each time window category into a new view containing the list of issues, each issue's assignee, and a link to the issue's URL. 
+
+I would also have liked to make some animations/transitions occur after the user submits a URL as well as return the repo owner's image to the UI as purely aesthetic additions.
