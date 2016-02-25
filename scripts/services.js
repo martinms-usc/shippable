@@ -8,14 +8,12 @@ angular.module('data', [])
 		var current = Date.parse(new Date());
 		var issues = data.map(function(issue) {
 			return {
-				opened: Date.parse(issue.created_at), 
-				url: issue.repository_url
+				opened: Date.parse(issue.created_at)
 			};
 		});
 		var counts = getCounts(issues, current);
 
 		tableData.total = issues.length;
-		tableData.url = issues[0].url;
 		tableData.lastDay = counts.lastDay;
 		tableData.lastWeek = counts.lastWeek;
 		tableData.weekPlus = issues.length - tableData.lastDay - tableData.lastWeek;

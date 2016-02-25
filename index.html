@@ -1,57 +1,62 @@
 <html ng-app="RepoDetails">
 <head>
-	<title>Shippable</title>
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <title>Shippable</title>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./styles.css">
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-  <script type="text/javascript" src="./app.js"></script>
-  <script type="text/javascript" src="./services.js"></script>
+  <script type="text/javascript" src="./scripts/app.js"></script>
+  <script type="text/javascript" src="./scripts/services.js"></script>
 </head>
 
 <body ng-controller="MainController">
 
-	<h1>Repo Details</h1>
+  <div class="center jumbotron">
+    <h1>Repo Details</h1>
+    <p>Enter a Github Repo Url below to see some stats about current open issues</p>
 
-	<form name="mainInput" ng-submit="urlSubmit(repo.url)">
-		<label>URL:
-			<input type="url" name="input" placeholder="Enter repo URL" ng-model="repo.url" ng-focus="success" required />
-			<button ng-click="urlSubmit(repo.url)">Submit</button>
-		</label>
+    <form name="mainInput" ng-submit="urlSubmit(repo.url)">
+      <input type="url" name="input" placeholder="Enter repo URL" ng-model="repo.url" ng-focus="success" required />
+      <a class="btn btn-primary btn-lg" ng-click="urlSubmit(repo.url)">Submit</a>
 
-  <div role="alert">
-    <span class="error" ng-show="mainInput.input.$error.required">
-      Required!</span>
-    <span class="error" ng-show="mainInput.input.$error.url">
-      Not valid url!</span>
-    <span class="error" ng-show="invalid">That isn't a Github repo!</span>
+    <div role="alert">
+      <span class="error" ng-show="mainInput.input.$error.required">
+        Required!</span>
+      <span class="error" ng-show="mainInput.input.$error.url">
+        Not valid url!</span>
+      <span class="error" ng-show="invalid">That isn't a Github repo!</span>
+    </div>
+    </form>
   </div>
-	</form>
 
-	<div ng-show="success">
-		<h3><a ng-href="https://github.com/{{ repo.owner }}">{{ repo.owner }}</a></h3>
-		<h4>Repo: <a ng-href="{{ repo.tableData.url }}">{{ repo.name }}</a></h4>
-		
-		<table class="table" style="width:90%">
-			<tr>
-				<td>Open Issues</td>
-				<td>Opened in last 24h</td>
-				<td>Opened 24h - 7d ago</td>
-				<td>Opened > 7 days ago</td>
-			</tr>
+  <div class="center main" ng-show="success">
+    <a class="link" ng-href="https://github.com/{{ repo.owner }}">{{ repo.owner }}</a>
+    <br>
+    <a class="link2" ng-href="https://github.com/{{ repo.owner }}/{{ repo.name }}">{{ repo.name }}</a>
+    <br>
+    <br>
+    <br>
+    <table class="table">
+      <tr>
+        <td class="th">Open Issues</td>
+        <td class="th">Opened in last 24h</td>
+        <td class="th">Opened 24h - 7d ago</td>
+        <td class="th">Opened > 7 days ago</td>
+      </tr>
 
-			<tr>
-				<td>{{ repo.tableData.total }}</td>
-				<td>{{ repo.tableData.lastDay }}</td>
-				<td>{{ repo.tableData.lastWeek }}</td>
-				<td>{{ repo.tableData.weekPlus }}</td>
-			</tr>
-		</table>
-	</div>
+      <tr>
+        <td id="total">{{ repo.tableData.total }}</td>
+        <td id="day">{{ repo.tableData.lastDay }}</td>
+        <td id="week">{{ repo.tableData.lastWeek }}</td>
+        <td id="plus">{{ repo.tableData.weekPlus }}</td>
+      </tr>
+    </table>
+  </div>
 
-	<div ng-show="fail">
-		<span>There was an error fetching that data.</span>
-	</div>
+  <div class="center" ng-show="fail">
+    <span>There was an error fetching that data.</span>
+  </div>
 
 </body>
 </html>
