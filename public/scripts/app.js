@@ -4,6 +4,7 @@ angular.module('RepoDetails', ['data'])
 	$scope.repo = {};
 
 	$scope.urlSubmit = function(text) {
+    
 		// make sure it's a github url
 		if (text.indexOf('github.com') == -1) {
 			$scope.invalid = true;

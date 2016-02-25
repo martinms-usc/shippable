@@ -1,8 +1,8 @@
 <html ng-app="RepoDetails">
 <head>
   <title>Shippable</title>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="./styles.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
@@ -13,8 +13,8 @@
 <body ng-controller="MainController">
 
   <div class="center jumbotron">
-    <h1>Repo Details</h1>
-    <p>Enter a Github Repo Url below to see some stats about current open issues</p>
+    <h1>Repo Issues</h1>
+    <p>Enter a Github repository url below to see some stats about current open issues</p>
 
     <form name="mainInput" ng-submit="urlSubmit(repo.url)">
       <input type="url" name="input" placeholder="Enter repo URL" ng-model="repo.url" ng-focus="success" required />
